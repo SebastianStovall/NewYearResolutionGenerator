@@ -1,0 +1,144 @@
+/* centering */
+.centerHeading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.centerText {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* resolution */
+.resButton {
+    margin-top: 30vh;
+    cursor: pointer;
+}
+
+
+/* snow animation */
+.snow_wrap {
+    height: 100vh;
+    width: 100%;
+    background:url('https://images5.alphacoders.com/133/1338712.png');
+    background-size: cover;
+    background-position: center bottom;
+    position: relative;
+    overflow: hidden;
+}
+
+.snow, .snow:after, .snow:before {
+    content: '';
+    position: absolute;
+    top: -650px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+    radial-gradient(4px 4px at 100px 50px, #fff, transparent),
+    radial-gradient(6px 6px at 200px 150px, #fff, transparent),
+    radial-gradient(3px 3px at 300px 250px, #fff, transparent),
+
+    radial-gradient(4px 4px at 400px 350px, #fff, transparent),
+    radial-gradient(6px 6px at 500px 100px, #fff, transparent),
+    radial-gradient(3px 3px at 50px 200px, #fff, transparent),
+
+    radial-gradient(4px 4px at 150px 300px, #fff, transparent),
+    radial-gradient(6px 6px at 250px 400px, #fff, transparent),
+    radial-gradient(3px 3px at 350px 500px, #fff, transparent);
+    background-size: 650px 650px;
+
+    animation: snowAnim 3s linear;
+    animation-iteration-count: infinite;
+}
+
+.snow:after {
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation-direction: reverse;
+    animation-duration: 6s;
+}
+.snow:before {
+    margin-left: -350px;
+    opacity: 0.7;
+    filter: blur(1px);
+    animation-direction: reverse;
+    animation-duration: 9s;
+}
+
+@keyframes snowAnim{
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(650px)
+    }
+}
+
+
+
+/* firework button */
+
+.resolutionButton {
+    background-color: rebeccapurple;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    position: relative;
+    transition: transform 0.1s linear, box-shadow 0.1s linear;
+    z-index: 10;
+}
+
+.resolutionButton:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 rebeccapurple;
+}
+
+.resolutionButton:focus {
+    outline: none;
+}
+
+.particle {
+    --x: 0;
+    --y: 0;
+    background-color: rebeccapurple;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 5px;
+    width: 5px;
+    z-index: -1;
+}
+
+.particle.move {
+    animation: move 1000ms linear forwards;
+}
+
+@keyframes move {
+    to {
+        transform: translate(var(--x), var(--y));
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

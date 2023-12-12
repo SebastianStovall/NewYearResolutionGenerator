@@ -21,6 +21,19 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* make clickable events like resolution button pop in front of snow effect */
+button {
+  z-index: 1
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
 a {
   color: inherit;
   text-decoration: none;
