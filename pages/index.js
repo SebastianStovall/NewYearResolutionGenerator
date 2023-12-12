@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styles from './index.module.css'
-import FireworkButton from "@/components/ui/fireworkButton";
+import Confetti from 'react-confetti';
 
 function Home() {
   const [resolution, setResolution] = useState(null)
+  const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [error, setError] = useState({})
 
   async function handleFetch() {
@@ -12,6 +13,12 @@ function Home() {
       const resolutionData = await response.json()
       setResolution(resolutionData)
       setError({})
+
+      setIsConfettiActive(true);
+      setTimeout(() => {
+        setIsConfettiActive(false);
+      }, 3000)
+
     } else {
       setResolution(null)
       setError({message: 'Error Generating Resolution! Please Try Again'})
@@ -19,15 +26,19 @@ function Home() {
   }
 
   return (
-    <div className={styles.snow_wrap}>
-      <div className={styles.snow}></div>
-
+    <div className={styles.snow_wrap}>  {/* image background */}
+      {isConfettiActive && <Confetti />} {/* confetti effect */}
+      <div className={styles.snow}></div> {/* snow effect */}
+      
       <h1 className={styles.centerHeading}>Need help finding a New Year's Resolution?</h1>
       <div className={styles.center}>
         <button onClick={handleFetch} className={styles.resolutionButton}>Generate Me A Resolution</button>
       </div>
+
+      {/* display resolution */}
       {resolution && <p className={styles.centerText}>{resolution.prompt}</p>}
       {Object.values(error).length > 0 && <p>{error.message}</p>}
+
     </div>
   )
 }
