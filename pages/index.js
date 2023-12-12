@@ -1,14 +1,20 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
+
+  async function handleFetch() {
+    const res = await fetch('/api/resolutions/')
+    console.log(res)
+  }
+
   return (
     <>
-      <h1>HELLO APP</h1>
+      <h1>Need help finding a New Year's Resolution?</h1>
+      <button
+      onClick={handleFetch}
+      >Generate Me A Resolution</button>
     </>
   )
 }
