@@ -10,6 +10,7 @@ async function getResolution(req, res) {
         }
     } else if (req.method === 'POST') {
         const data = req.body.resolution
+        console.log("DATA", data)
         const newResolution = await createNewResolution(data)
         if (!newResolution) {
             res.status(500).json({message: 'ERROR WHILE CREATING RESOLUTION'})
@@ -43,10 +44,14 @@ export async function retrieveRandomInstance(){
 
 
 async function createNewResolution(data) {
+    const count = await prisma.resolution.count() // issue reset local autoincrement for postgresql, use count instead then have new instance be (count + 1)
+    console.log("COUNT", count)
     try {
         const newResolution = await prisma.resolution.create({
             data: {
-                prompt: data.text
+                id: count + 1,
+                prompt: data.text,
+                image: null
             }
         })
         return newResolution
