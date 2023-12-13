@@ -32,7 +32,7 @@ export default function CountDown({newYear}) {
         <div className={styles.countdown}>
             <div className ={styles.time}>
                 <div>{days}</div>
-                <p className ={styles.countdownP}>Day</p>
+                <p className ={styles.countdownP}>Days</p>
             </div>
             <div className ={styles.time}>
                 <div>{hours}</div>
@@ -40,11 +40,11 @@ export default function CountDown({newYear}) {
             </div>
             <div className ={styles.time}>
                 <div>{minutes}</div>
-                <p className ={styles.countdownP}>Minute</p>
+                <p className ={styles.countdownP}>Minutes</p>
             </div>
             <div className ={styles.time}>
                 <div>{seconds}</div>
-                <p className ={styles.countdownP}>Second</p>
+                <p className ={styles.countdownP}>Seconds</p>
             </div>
         </div>
     )

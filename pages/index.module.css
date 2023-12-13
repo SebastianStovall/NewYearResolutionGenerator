@@ -20,18 +20,53 @@
   font-size: 30px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-shadow: 10px 5px 20px rgb(0, 0, 0);
+  opacity: 0;
+  animation: fadeIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards, bobbing 2s ease-in-out infinite 2s;
 }
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bobbing {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.1);
+    }
+  }
 
 .center {
   display: flex;
   justify-content: center;
-  margin-top: 10vh;
+  margin-top: 7vh;
 }
 
 /* resolution */
 .resButton {
   margin-top: 30vh;
   cursor: pointer;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+  text-shadow: 10px 5px 20px rgb(0, 0, 0);
+}
+
+.formButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* snow animation */
@@ -93,12 +128,10 @@
   }
 }
 
-
-
 /* snow button */
 
 .resolutionButton {
-  display: inline-block;
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -125,7 +158,6 @@
   -moz-transition: 500ms linear;
   -o-transition: 500ms linear;
   transition: 500ms linear;
-
 }
 
 .resolutionButton::before {
