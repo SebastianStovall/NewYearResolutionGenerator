@@ -58,6 +58,11 @@ function Home() {
       {/* display resolution */}
       {resolution && <p className={styles.centerText}>{resolution.prompt}</p>}
       {Object.values(error).length > 0 && <p>{error.message}</p>}
+
+      <div className={styles.resolutionImgContainer}>
+        {resolution && resolution.image && <img src={resolution.image} />}
+      </div>
+
       <ToastContainer />
     </div>
   )
