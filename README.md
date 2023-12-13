@@ -44,7 +44,13 @@ Make sure you have Node.js and npm installed on your machine.
    ```bash
    npm run seed
 
-4. start the application:
+4. ensure correct node version:
+
+   ```bash
+    nvm install 20.9
+    nvm alias default 20.9
+
+5. start the application:
 
    ```bash
    npm run dev
