@@ -197,3 +197,21 @@
   -o-transition: 50ms linear;
   transition: 50ms linear;
 }
+
+
+/* resolution image container and image */
+
+.resolutionImgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.resolutionImgContainer > img {
+  height: 300px;
+  width: 300px;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.25);
+  border: 2px solid black;
+  margin-top: 40px;
+}
