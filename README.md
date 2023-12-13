@@ -41,6 +41,10 @@ sudo -u postgres psql
 
 # if you run into an error, restart ubuntu
 # if you get permission denied, run this command then do the above command again
+2. generate prisma migration:
+
+   ```bash
+   npx prisma migrate dev --name init
 
 service postgresql service postgresql restart
 ```
@@ -95,8 +99,15 @@ npm run dev
 
 ```
 
+9. Ensure correct node version:
 
-9. start the application:
+```bash
+    nvm install 20.9
+    nvm alias default 20.9
+```
 
-   ```bash
-   npm run dev
+10. start the application:
+
+ ```bash
+    npm run dev
+ ```
