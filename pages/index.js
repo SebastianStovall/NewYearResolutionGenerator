@@ -14,7 +14,7 @@ function Home() {
   const [resolution, setResolution] = useState(null)
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [error, setError] = useState({})
-  const year = getYear()
+  const year = getYear() // gets year in date.getTime() format
 
 
   async function handleFetch() {
