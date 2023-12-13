@@ -33,6 +33,11 @@ Make sure you have Node.js and npm installed on your machine.
    ```bash
    npm install -g sqlite3
 
+2. generate prisma migration:
+
+   ```bash
+   npx prisma migrate dev --name init
+
 
 3. seed the prisma database:
 
