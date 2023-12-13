@@ -53,6 +53,11 @@ function ResolutionForm() {
   return (
     <div className={styles.snow_wrap}> {/* image background */}
       <div className={styles.snow}></div> {/* snow effect */}
+
+      <div className={formStyles.banner}>
+        <img src='https://i.pinimg.com/originals/80/4c/98/804c98742bd28408ef94298b633e446d.png' />
+      </div>
+
       <div className={formStyles.login}>
         <h2>{currentYear} Resolution Idea</h2>
         <form>
@@ -80,6 +85,7 @@ function ResolutionForm() {
           </a>
         </form>
       </div>
+
     </div>
   );
 }
