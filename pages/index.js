@@ -3,8 +3,14 @@ import styles from './index.module.css'
 import Confetti from 'react-confetti';
 import CountDown from "@/components/countdown";
 import getYear from "@/lib/getNewYear";
+import { useRouter } from "next/router";
+
+// App.js or your main component file
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
+  const router = useRouter()
   const [resolution, setResolution] = useState(null)
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [error, setError] = useState({})
@@ -12,6 +18,9 @@ function Home() {
 
 
   async function handleFetch() {
+
+    if(isConfettiActive) return // if confetti effect not complete, dont start next fetch, (breaks confetti otherwise)
+
     const response = await fetch('/api/resolutions/')
     if(response.ok) {
       const resolutionData = await response.json()
@@ -27,6 +36,7 @@ function Home() {
       setResolution(null)
       setError({message: 'Error Generating Resolution! Please Try Again'})
     }
+
   }
 
   return (
@@ -40,14 +50,19 @@ function Home() {
       <div className={styles.center}>
         <button onClick={handleFetch} className={styles.resolutionButton}>Generate Me A Resolution</button>
       </div>
+        <div className={styles.or}>or</div>
+        <div className={styles.formButton}>
+          <button className={styles.resolutionButton} onClick={() => router.push('./resolutionForm')}>Submit Your Own</button>
+        </div>
 
       {/* display resolution */}
       {resolution && <p className={styles.centerText}>{resolution.prompt}</p>}
       {Object.values(error).length > 0 && <p>{error.message}</p>}
-
+      <ToastContainer />
     </div>
   )
 }
 
+// className={styles.centerText}
 
 export default Home;
