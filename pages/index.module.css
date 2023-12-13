@@ -2,8 +2,16 @@
 .centerHeading {
   text-align: center;
   margin-top: 50px;
-  font-size: 50px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-shadow: 10px 5px 20px rgb(0, 0, 0);
+}
+
+.centerCountdownTxt {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-bottom: 20px;
+  text-shadow: 10px 5px 20px rgb(0, 0, 0);
 }
 
 .centerText {
@@ -11,12 +19,13 @@
   margin-top: 50px;
   font-size: 30px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-shadow: 10px 5px 20px rgb(0, 0, 0);
 }
 
 .center {
   display: flex;
   justify-content: center;
-  margin-top: 25vh;
+  margin-top: 10vh;
 }
 
 /* resolution */
@@ -116,6 +125,7 @@
   -moz-transition: 500ms linear;
   -o-transition: 500ms linear;
   transition: 500ms linear;
+
 }
 
 .resolutionButton::before {
