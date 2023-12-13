@@ -61,6 +61,7 @@ function Home() {
 
       <div className={styles.resolutionImgContainer}>
         {resolution && resolution.image && <img src={resolution.image} />}
+        {resolution && resolution.image === null && <img src='https://th.bing.com/th/id/OIG.2xoPFTgitQSB1uiCN9LD?pid=ImgGn' />}
       </div>
 
       <ToastContainer />
