@@ -1,8 +1,9 @@
-import { prisma } from "@/server/db/client"
+import { prisma } from '../../../server/db/client'
 
 async function getResolution(req, res) {
     if(req.method === "GET"){
         const resolution = await retrieveRandomInstance()
+        console.log("RESOLUTION ----> ", resolution)
         if(!resolution){
             res.status(500).json({message: 'Error retrieving your resolution'})
         } else {
@@ -14,16 +15,20 @@ async function getResolution(req, res) {
 export async function retrieveRandomInstance(){
     try {
         const count = await prisma.resolution.count()
-        const randomId = Math.floor(Math.random() * count)
+        let randomId = null
+        while(randomId === null || randomId === 0) randomId = Math.floor(Math.random() * count)
+
         const resolution = await prisma.resolution.findUnique({
             where: {
                 id: randomId
             }
         })
         return resolution
-    } catch (error) {
-        console.error(error);
+
+    } catch (e) {
+        console.error(e);
         return null;
+
     } finally {
         await prisma.$disconnect();
     }
